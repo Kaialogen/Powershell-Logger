@@ -1,4 +1,4 @@
-# jack_script
+# Powershell Logger
 
 ## Sources
 
