@@ -1,9 +1,10 @@
 # Set output paths
-$securityEventsOutputPath = "C:\Users\kaial\Desktop\EventLogs.csv"
-$powershellHistoryOutputPath = "C:\Users\kaial\Desktop\PowershellHistory.csv"
+$securityEventsOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\EventLogs.csv"
+$powershellHistoryOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\PowershellHistory.csv"
+$cmdHistoryOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\CmdHistory.csv"
 
 # Get Security Events with ID 4625
-$securityEvents = Get-WinEvent -FilterHashTable @{LogName='Security'; Id=4625} | ForEach-Object {
+$securityEvents = Get-WinEvent -FilterHashTable @{LogName='Security'; Id=4624} | ForEach-Object {
     $event1 = $_
     $ip4 = if ($event1.Properties[18].Value -ne '%%127.0.0.1') { $event1.Properties[18].Value }
     $ip6 = if ($event1.Properties[19].Value -ne '-') { $event1.Properties[19].Value }
@@ -31,3 +32,12 @@ $powershellHistory = Get-History | ForEach-Object {
     } 
 }
 $powershellHistory | Export-Csv -Path $powershellHistoryOutputPath -NoTypeInformation -Force
+
+
+# Get Command Prompt History
+$cmdHistory = cmd /c 'doskey /history' | ForEach-Object { 
+    New-Object -TypeName PSObject -Property @{
+        CommandLine = $_
+    } 
+}
+$cmdHistory | Export-Csv -Path $cmdHistoryOutputPath -NoTypeInformation -Force
