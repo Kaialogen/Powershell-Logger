@@ -1,6 +1,5 @@
 # Set output paths
 $securityEventsOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\EventLogs.csv"
-$powershellHistoryOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\PowershellHistory.csv"
 $cmdHistoryOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\CmdHistory.csv"
 
 # Get Security Events with ID 4625
@@ -23,15 +22,6 @@ $securityEvents = Get-WinEvent -FilterHashTable @{LogName='Security'; Id=4624} |
     }
 }
 $securityEvents | Export-Csv -Path $securityEventsOutputPath -NoTypeInformation -Force
-
-# Get Powershell History
-$powershellHistory = Get-History | ForEach-Object { 
-    New-Object -TypeName PSObject -Property @{
-        Timestamp = $_.StartExecutionTime
-        CommandLine = $_.CommandLine
-    } 
-}
-$powershellHistory | Export-Csv -Path $powershellHistoryOutputPath -NoTypeInformation -Force
 
 
 # Get Command Prompt History
