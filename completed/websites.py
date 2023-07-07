@@ -18,7 +18,7 @@ def chromeHistory():
     results = cursor.fetchall()
 
     # write results to file 'historyChrome'
-    with open('historyChrome.csv', 'w', newline='') as file:
+    with open('../output/historyChrome.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['URL', 'Visit Count', 'Last Visit Date'])
         for url, count, date in results:
@@ -44,7 +44,7 @@ def edgeHistory():
     results = cursor.fetchall()
 
     # write result to file 'historyEdge'
-    with open('historyEdge.csv', 'w', newline='') as file:
+    with open('../output/historyEdge.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['URL', 'Visit Count', 'Last Visit Date'])
         for url, count, date in results:
