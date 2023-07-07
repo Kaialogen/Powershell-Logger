@@ -1,4 +1,4 @@
-$powershellHistoryOutputPath = "C:\Users\joshe\OneDrive\Desktop\shellScript\output\PowershellHistory.csv"
+$powershellHistoryOutputPath = "../output/PowershellHistory.csv"
 
 # Get Powershell History
 $powershellHistory = Get-History | ForEach-Object { 
