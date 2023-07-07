@@ -6,7 +6,8 @@
 ✓ Web Browser Databases<br>
 ✓ Windows tools
   - Ip Config
-  - Adapter Config
+  - Adapter Config<br>
+  
 ❌ Event Logs - Useful event logs require administrative privileges to extract.
 
 ## Activities Captured
