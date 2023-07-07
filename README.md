@@ -14,8 +14,8 @@
 - Adapter Configuration: Captured with Adapter Config tool and exported
 - PowerShell history: Captured with a simple script and exported
 - Command prompt history:
-  - Limited ways to extract command prompt history, as it only saves terminal sessions by default
-    Potential for installation of clink or similar tools to improve history persistence through sessions
+  - Limited ways to extract command prompt history. As it only saves terminal sessions by default, there is
+    Potential for installation of clink or similar tools to improve history persistence throughout sessions.
     Create a more complicated script that saves and executes each command, creates aliases, and runs '[alias] command' for every command
 - Web Browser History: Extracted data from web browser databases using Python
   - Potential to use other tools or firewall to view all network traffic (requires admin privileges)
